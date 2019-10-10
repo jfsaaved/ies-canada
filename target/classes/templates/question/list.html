@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="layouts/main" xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:fd="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IES Canada</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="page-contents" layout:fragment="content">
+
+    <table class="table table-hover">
+        <thead>
+            <th colspan="2">SOLUTION CASES</th>
+        </thead>
+        <tbody th:each="question : ${questions}">
+            <td th:text="'QUESTION # ' + ${question.day} + '.' + ${question.question}"></td>
+            <td th:text="${question.questionDetails}"></td>
+            <tr th:each="answer : ${answers}" th:if="${answer.question.id} == ${question.id}">
+                <td th:text="${answer.questionCase}"></td>
+                <td th:text="${answer.questionSolution}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
