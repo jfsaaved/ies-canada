@@ -1,8 +1,8 @@
 package com.jfsaaved;
 
-import com.jfsaaved.solutions.Day1Solutions;
-import com.jfsaaved.solutions.Day2Solutions;
-import com.jfsaaved.solutions.Day3Solutions;
+import com.jfsaaved.solutions.*;
+import com.jfsaaved.solutions.modules.Day5Solutions.Item;
+import com.jfsaaved.solutions.modules.Day5Solutions.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,11 +10,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
 
-        SpringApplication.run(Main.class, args);
+        //SpringApplication.run(Main.class, args);
 
         System.out.println("DAY 1 ----------------------------------------------------------------");
 
@@ -124,6 +124,24 @@ public class Main {
         System.out.println("Looking for the index of "+ input +" on array " + sortedString);
         System.out.println(day3Solutions.binarySearch(sorted,input));
         System.out.println("------------------------------------------");
+
+        System.out.println("DAY 4 ----------------------------------------------------------------");
+        Day4Solutions day4Solutions = new Day4Solutions();
+        day4Solutions.solveCubicEquation("2x^3+3x^2+4x+5");
+        System.out.println("------------------------------------------");
+
+        System.out.println("DAY 5 ----------------------------------------------------------------");
+        Day5Solutions day5Solutions = new Day5Solutions(new User(0,"Julian Saavedra", "PayPal"));
+        Item book = new Item(0,"Book", "A book for reading.", 10.00);
+        Item laptop = new Item(1,"Laptop", "An expensive laptop", 1800.00);
+        Item proteinShake = new Item(2,"Protein Shake Powder", "Mix with liquid to drink.", 70.00);
+        day5Solutions.userPutsItemInShoppingCart(book);
+        day5Solutions.userPutsItemInShoppingCart(laptop);
+        day5Solutions.userPutsItemInShoppingCart(proteinShake);
+        day5Solutions.userViewShoppingCart();
+        day5Solutions.userRemoveItemFromShoppingCart(laptop);
+        day5Solutions.userChecksOut();
+
     }
 
 }
